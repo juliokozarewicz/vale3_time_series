@@ -1,0 +1,15 @@
+--------------------------------------------------
+ADF Results:
+
+Nonseasonal differences needed for stationarity: 1
+
+Variable: VALE (REAIS)
+ADF Test: -5.797511
+P-value: 0.000006
+Lags: 1
+Observations: 139
+Critical values:
+  1%: -4.025422
+  5%: -3.442560
+  10%: -3.145863
+--------------------------------------------------

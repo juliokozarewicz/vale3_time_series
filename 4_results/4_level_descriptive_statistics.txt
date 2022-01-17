@@ -1,0 +1,11 @@
+--------------------------------------------------
+Descriptive analysis:
+
+Variable: VALE (REAIS) (level)
+Mean: 43.15
+Median: 42.24
+Sample std: 20.73
+Variance: 429.67
+Lowest: 9.72
+Highest: 114.78
+--------------------------------------------------
