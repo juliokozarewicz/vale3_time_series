@@ -5,6 +5,8 @@ To predict the price of Vale's shares, using pig iron production as an explanato
 
 Results of the pig iron prediction model: https://github.com/juliokozarewicz/pig_iron
 
+>This is not a buy or sell recommendation, it is just a study and should not be considered when making an investment decision!
+
 ## Pig iron
 The vast majority of pig iron is produced and consumed within integrated steel mill complexes. In this context the term “pig iron” is something of a misnomer: within integrated steel mills, blast furnace iron is transferred directly to the steel plant in liquid form, better known as "hot metal" or "blast furnace iron."
 
