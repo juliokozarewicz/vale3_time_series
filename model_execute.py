@@ -7,6 +7,7 @@ from sklearn.metrics import r2_score
 from numpy import arange
 from data_input import data_exogs_fore, date_predict_init
 from data_input import data_endog as data_original
+from config import D 
 
 
 class Model_execute:
@@ -74,7 +75,8 @@ class Model_execute:
                              trend="c")
         
         self.model_fit = self.model.fit(disp=False)
-        self.resid = DataFrame(self.model_fit.resid, columns=[f"{self.variable}"]).iloc[ 1 : , : ]
+        self.resid = DataFrame(self.model_fit.resid, 
+                               columns=[f"{self.variable}"]).iloc[ ( d * 12 ) + 1 : , : ]
         model_result = self.model_fit.summary()
         
         with open('4_results/9_model_summary.txt', 'w') as desc_stat:
@@ -173,12 +175,12 @@ class Model_execute:
         """
         
         # plot config
-        fig, ax = plt.subplots(1, 1, sharex=True, figsize=( 12 , 6), dpi=300)
+        fig, ax = plt.subplots(1, 1, sharex=True, figsize=(12 , 6), dpi=300)
         plt.rcParams.update({'font.size': 12})
         plt.style.use(self.style_graph)
         
         # *** fit model ***
-        init_fitted = 35
+        init_fitted = ( D * 12 ) + 1
         self.data_endog[f"{self.variable_}_fitted"] = self.model_fit.predict(start=init_fitted,
                                                                              dynamic=False)
         
@@ -227,8 +229,9 @@ class Model_execute:
         
         # rename df results
         self.data_endog = concat([self.data_endog,
-                                  concat([predict_mean, predict.summary_frame()['mean_se'], conf_95],
-                                  axis=1)])
+                                  concat([predict_mean.iloc[ 1: , ], 
+                                          predict.summary_frame()['mean_se'].iloc[ 1: , ], 
+                                          conf_95.iloc[ 1: , ]], axis=1)])
         
         self.data_endog.columns = [f"{self.variable_}_observed",
                                    f"{self.variable_}_fitted",

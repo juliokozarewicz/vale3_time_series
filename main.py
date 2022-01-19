@@ -6,6 +6,7 @@ from x13arima_seas_adjust import X13_arima_desaz
 from stationarity import Stationarity_diff
 from model_execute import Model_execute
 from data_input import variable, data_endog, data_exogs
+from config import date_train_init
 
 
 # suppress warnings - sorry about that =(
@@ -115,11 +116,13 @@ data_dummy = read_csv("3_working/0_dummy.csv",
 data_dummy["index_date"] = to_datetime(data_dummy["index_date"])
 data_dummy = data_dummy.sort_values("index_date")
 data_dummy = data_dummy.set_index("index_date")
+data_dummy = data_dummy[ (data_dummy.index >= date_train_init) ]
 
-data_model = concat([data_non_seasonal_endog,
-                     data_stationarity.iloc[ : , 2 : ], 
+data_model = concat([data_non_seasonal_endog.iloc[ : , 0 ],
+                     data_stationarity, 
                      data_dummy], 
-                     axis=1)
+                     axis=1).dropna()
+
 # --------------------------------------------------------------------------
 #   }
 

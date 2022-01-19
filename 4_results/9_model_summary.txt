@@ -2,8 +2,8 @@
 ============================================================================================
 Dep. Variable:                         vale_(reais)   No. Observations:                  142
 Model:             SARIMAX(1, 1, 0)x(2, 1, [1], 12)   Log Likelihood                -353.537
-Date:                              Mon, 17 Jan 2022   AIC                            723.074
-Time:                                      12:01:51   BIC                            745.952
+Date:                              Wed, 19 Jan 2022   AIC                            723.074
+Time:                                      13:06:48   BIC                            745.952
 Sample:                                  02-01-2010   HQIC                           732.370
                                        - 11-01-2021                                         
 Covariance Type:                                opg                                         
